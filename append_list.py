@@ -1,56 +1,82 @@
 class Node():
-	def __init__(self,value):
+	def __init__(self,value=0):
 		self.value = value
 		self.next = None
 
 class LinkedList():
 	def __init__(self):
-		self.head = Node(2)
-	def append(self,value):
-		temp = Node(value)		# node to be appended
+		self.head = None		# head refers to empty linked list 
+	
+	def append(self,value):			# input value of node
+		temp = Node(value)		# new node to be appended with node value equals to value 
 		current = self.head
-		if self.head:
+		if self.head is not None:
 			while current.next != None:
 				current = current.next
 			current.next = temp
 		else:
-			current.next = None
-	def traverse(self):
-		counter = 1
+			self.head = temp 
+	
+	def traverse(self):			# finds the length of list	
+		counter = 0 
 		current = self.head
-		if self.head:
-			while current.next != None:
+		if self.head is not None:
+			while current != None:
 				current = current.next
 				counter += 1
+			print counter
 			return counter
-		else:
-			return 1
-	def get_position(self,position):
+		return counter
+	
+	def get_position(self,position):	# given position finds the value of node at that position
 		current = self.head
-		counter = 1 
-		if position >= 1:
-			while self.head :
+		counter = 0 
+		if position >= 0 :
+			while self.head:
 				if counter == position:
+					print current.value
 					return current.value
+				else:
+					current = current.next
 				counter += 1
-				current = current.next
 		else:
-			return 0
-				
+			print None
+			return None
 
-l1 = LinkedList()
-print l1.head.value
-#print l1.head.next
+	def print_linked_list(self):
+		current = self.head
+		if self.head is not None:
+			while current != None:
+				print current.value,"-->",
+				current = current.next
+			print "NULL"
+		else:
+			"No linked list exists"				
 
-print l1.traverse()
-l1.append(10)
-print l1.traverse()
-l1.append(50)
-print l1.traverse()
-l1.append(3)
-print l1.traverse()
 
-print l1.get_position(4)
-print l1.get_position(1)
-print l1.get_position(2)
-print l1.get_position(3)
+if __name__ == "__main__":
+	List = LinkedList()
+	print "Menu:"
+	print "1 - Append and element to the linked list"
+	print "2 - Find the length of linked list"
+	print "3 - Find the node at position entered by user"
+	print "4 - Print linked list"
+	
+	n = raw_input("Choose an option(1/2/3/4) :")
+	while True:
+		if n == '1':
+			val = input("Enter any value to append to the list:")
+			List.append(val)
+		elif n == '2':
+			List.traverse()
+		elif n == '3':
+			pos = input("Enter any position to find the value of node:")
+			List.get_position(pos)
+		elif n == '4':
+			List.print_linked_list()
+		else:
+			print "Invalid option choosed.Exiting ...."
+			break
+		n = raw_input("Choose an option(1/2/3/4): ")
+		
+		 
