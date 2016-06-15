@@ -25,7 +25,7 @@ class LinkedList():
 		if self.head is not None:
 			if position > 1:
 				counter = 1
-				while counter < position:			# as temp will be inserted at position-1 
+				while counter < position and current.next != None:	# as temp will be inserted at position-1 
 					if counter == (position - 1) :		# node present at position will now move to position+1
 						temp.next = current.next
 						current.next = temp
@@ -48,14 +48,15 @@ class LinkedList():
 		current = self.head
 		previous = None
 		if self.head is not None:
-			while current.value != value:
+			# if value does not found in the list then loop stops
+			while current.value != value and current.next != None:	 
 				previous = current
 				current = current.next
 			if current.value == value:
 				if previous != None:			
 					previous.next = current.next
 				else:
-					self.head = current.next 
+					self.head = current.next
 		else:	
 			return "No linked list exists"
 
