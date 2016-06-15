@@ -18,7 +18,7 @@ class LinkedList():
 		else:
 			return 0
 
-
+	""" insert any node at given position"""
 	def insert_node(self,position,value):
 		temp = Node(value)
 		current = self.head
@@ -53,6 +53,10 @@ class LinkedList():
 	
 if __name__ == "__main__":
 	List = LinkedList()
+	print "Menu:"
+	print "1 - Find the length of linked list"
+	print "2 - Insert node at given position"
+	print "3 - Print Linked list" 
 	n = raw_input("Enter number between 1/2/3:")
 	while True:
 		if n == '1':
