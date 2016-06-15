@@ -42,6 +42,22 @@ class LinkedList():
 				temp.next = None
 			else:
 				return "position does not exists"
+	
+	""" Delete the first node with given value"""	
+	def delete_first_node_with_given_value(self,value):
+		current = self.head
+		previous = None
+		if self.head is not None:
+			while current.value != value:
+				previous = current
+				current = current.next
+			if current.value == value:
+				if previous != None:			
+					previous.next = current.next
+				else:
+					self.head = current.next 
+		else:	
+			return "No linked list exists"
 
 	def print_list(self):
 		print "printing linked list"
@@ -56,8 +72,9 @@ if __name__ == "__main__":
 	print "Menu:"
 	print "1 - Find the length of linked list"
 	print "2 - Insert node at given position"
-	print "3 - Print Linked list" 
-	n = raw_input("Enter number between 1/2/3:")
+	print "3 - Delete first node with given value"
+	print "4 - Print Linked list" 
+	n = raw_input("Enter number between 1/2/3/4:")
 	while True:
 		if n == '1':
 			print List.find_length_of_linked_list()
@@ -66,10 +83,13 @@ if __name__ == "__main__":
 			val = input("Enter any value of node:")
 			print List.insert_node(pos,val)
 		elif n == '3':
+			val = input("Enter node value to delete from list:")
+			print List.delete_first_node_with_given_value(val)
+		elif n == '4':
 			List.print_list()
 		else:
 			print "Invalid option choosen.Exiting..."
 			break
-		n = raw_input("Enter number between 1/2/3: ")
+		n = raw_input("Enter number between 1/2/3/4: ")
 		
 				
