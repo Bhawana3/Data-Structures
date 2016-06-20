@@ -57,6 +57,7 @@ class LinkedList():
 					previous.next = current.next
 				else:
 					self.head = current.next
+
 		else:	
 			return "No linked list exists"
 
