@@ -24,6 +24,7 @@ class CircularLinkedList:
 	""" Find loop in a linked list"""
 	def find_loop(self):	
 		fast = self.head
+		slow = self.head
 		if self.head is not None:
 			while fast != None and fast.next.next != None:
 				if slow != fast:	# when slow becomes equal to fast then there must be a loop
@@ -65,7 +66,7 @@ class Linkedlist:
 		slow = self.head	
 		fast = self.head
 		if self.head is not None:
-			while fast != None and fast.next.next != None:
+			while fast != None and fast.next != None:
 				slow = slow.next
 				fast = fast.next.next
 				if slow == fast:	# when slow becomes equal to fast then there must be a loop
