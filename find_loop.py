@@ -26,7 +26,7 @@ class CircularLinkedList:
 		fast = self.head
 		slow = self.head
 		if self.head is not None:
-			while fast != None and fast.next.next != None:
+			while fast != None and fast.next != None:
 				if slow != fast:	# when slow becomes equal to fast then there must be a loop
 					slow = slow.next
 					fast = fast.next.next
