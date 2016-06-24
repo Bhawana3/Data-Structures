@@ -25,14 +25,22 @@ class CircularLinkedList:
 	def find_loop(self):	
 		fast = self.head
 		slow = self.head
+		loopExists = False
 		if self.head is not None:
 			while fast != None and fast.next != None:
 				if slow != fast:	# when slow becomes equal to fast then there must be a loop
 					slow = slow.next
 					fast = fast.next.next
 				else:
-					return True
-			return False 
+					loopExists = True
+					print 'loop exists'
+					break
+			if loopExists :
+				slow = self.head
+				while slow != fast:		# when slow becomes equal to fast,they are at point where loop starts
+					slow = slow.next
+					fast = fast.next
+				return slow.value
 		else:
 			return "Empty Linked List"
 
