@@ -1,6 +1,6 @@
 """ Make a special stack class which has same push,pop methods 
 	plus one additional method to show minimum value of stack
-	 in Time complexity of O(n)"""
+	 in Time complexity of O(1)"""
 
 
 class Node:
