@@ -45,29 +45,24 @@ class LinkedList:
 	def partition(self,value):
 		smaller_list = LinkedList()
 		larger_list = LinkedList()
-		new_list = LinkedList()
 		current = self.head
 		if current is not None:
 			while current != None:
 				if current.value < value:
-					temp = current.value
-					smaller_list.append(temp)
+					smaller_list.append(current.value)
 				elif current.value == value:
-					temp = current.value
-					larger_list.insert_into_front(temp)
+					larger_list.insert_into_front(current.value)
 				else:
-					temp = current.value
-					larger_list.append(temp)
+					larger_list.append(current.value)
 				current = current.next
 			small = smaller_list.head		
 			if small is not None:
 				while small.next != None:
 					small = small.next
 				small.next = larger_list.head		# merge smaller list with larger list
-				new_list.head = smaller_list.head
 			else:
-				new_list.head = larger_list.head
-			return new_list.printList()			# merge both lists into new list
+				smaller_list.head = larger_list.head	# head pointer of smaller list pointing towards none
+			smaller_list.printList()			
 		else:
 			print "Empty linked list"
 
