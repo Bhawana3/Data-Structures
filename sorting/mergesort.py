@@ -44,13 +44,6 @@ def mergeSort(array):
 	print "left :",left
 	right = array[mid:length_of_array]
 	print "right :",right
-	for i in range(len(left)):
-		left[i] = array[i]
-	
-	j = mid
-	while j < len(right):
-		right[j-mid] = array[j]
-		j += 1
 
 	mergeSort(left)
 	mergeSort(right)
@@ -59,3 +52,5 @@ def mergeSort(array):
 
 if __name__ == "__main__":
 	print mergeSort([65,56,1,87,10,0,15,3,4,2])
+	print mergeSort([])
+	print mergeSort([1,2])
